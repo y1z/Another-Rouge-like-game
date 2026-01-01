@@ -1,0 +1,56 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="THE ROUGE LIKE"
+run/main_scene="uid://bskes752scsks"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Enums="*res://Scripts/Enums.gd"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=2
+gdscript/warnings/shadowed_variable_base_class=2
+gdscript/warnings/shadowed_global_identifier=2
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/missing_tool=2
+gdscript/warnings/deprecated_keyword=2
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg", "res://addons/simple_gdscript_formatter/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Entities/": "orange",
+"res://Scenes/": "red",
+"res://Scripts/": "green",
+"res://Sprites/": "yellow",
+"res://Textures/": "purple",
+"res://Themes/": "pink"
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter="Nearest"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
