@@ -1,9 +1,11 @@
-class_name Character extends Node2D
+extends Node2D
 
-var grid_pos :Vector2i
+var grid: GameGrid
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	grid = %Grid;
+	
 	pass # Replace with function body.
 
 

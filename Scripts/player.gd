@@ -1,9 +1,10 @@
-class_name Character extends Node2D
+class_name Player extends Node2D
 
-var grid_pos :Vector2i
+var sprite: Sprite2D;
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	sprite = %sprite
 	pass # Replace with function body.
 
 
