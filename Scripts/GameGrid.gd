@@ -5,6 +5,7 @@ const DEFAULT_NODE_SIZE: Vector2i = Vector2i(64, 64)
 @export var row: int;
 @export var column: int;
 @export var node_size: Vector2i = Vector2i.ZERO;
+@export var grid_color: Color = Color.ALICE_BLUE
 
 var grid_attribute: Array[Enums.GridAttribute]
 var grid_position: Array[Vector2i]
@@ -19,7 +20,6 @@ func _init() -> void:
 	pass
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(row > 0, "needs at minimum 1")
 	assert(column > 0, "needs at minimum 1")
@@ -48,12 +48,32 @@ func generate_grid() -> void:
 
 
 func get_grid_pos(x: int, y: int) -> Vector2:
-	assert(x < max_x && x > -1)
-	assert(y < max_y && y > -1)
-	var index: int = (y * max_x) + x;
+	assert(x < row && x > -1)
+	assert(y < column && y > -1)
+	var index: int = (y * row) + x;
 	var grid_pos: Vector2i = grid_position[index]
 	var result: Vector2
 	result.x = self.position.x + (grid_pos.x * node_size.x) as float;
 	result.y = self.position.y + (grid_pos.y * node_size.y) as float;
 
 	return result
+
+
+func get_grid_pos_clamp(x: int, y: int) -> Vector2:
+	return get_grid_pos(clampi(x, 0, get_grid_row()), clampi(y, 0, get_grid_colum()));
+
+
+func get_grid_row() -> int:
+	return row - 1
+
+
+func get_grid_colum() -> int:
+	return column - 1
+
+
+func _draw() -> void:
+	var rect: Rect2 = Rect2(0, 0, node_size.x, node_size.y)
+	for i in grid_position:
+		rect.position.x = (i.x * node_size.x) + 1
+		rect.position.y = (i.y * node_size.y) + 1
+		draw_rect(rect, grid_color, false)

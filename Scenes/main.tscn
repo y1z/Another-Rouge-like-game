@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bskes752scsks"]
+[gd_scene load_steps=4 format=3 uid="uid://bskes752scsks"]
 
 [ext_resource type="Script" uid="uid://cc0ha7jlvj0mh" path="res://Scripts/mainManager.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dw863nwldvs4" path="res://Entities/grid.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://d3172fx1h1027" path="res://Entities/Player.tscn" id="2_8gbba"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bo1nx")
 
-[node name="Grid" parent="." instance=ExtResource("1_jjgbg")]
+[node name="background" type="Node2D" parent="."]
+
+[node name="Grid" parent="background" instance=ExtResource("1_jjgbg")]
 unique_name_in_owner = true
 row = 10
 column = 10
+grid_color = Color(0.36745209, 0.72436535, 1, 1)
+
+[node name="forgound" type="Node2D" parent="."]
+
+[node name="Player" parent="forgound" instance=ExtResource("2_8gbba")]
+unique_name_in_owner = true
