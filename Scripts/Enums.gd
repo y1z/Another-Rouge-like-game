@@ -11,3 +11,13 @@ enum GridAttribute
 	PLACE_HOLDER6 = (1 << 5),
 	PLACE_HOLDER7 = (1 << 6),
 }
+
+enum InputResult
+{
+	NONE = 0,
+	UP,
+	DOWN,
+	RIGHT,
+	LEFT,
+	MENU,
+}

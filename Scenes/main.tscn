@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bskes752scsks"]
 
-[ext_resource type="Script" uid="uid://cc0ha7jlvj0mh" path="res://Scripts/mainManager.gd" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://cc0ha7jlvj0mh" path="res://Scripts/Managers/mainManager.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dw863nwldvs4" path="res://Entities/grid.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://d3172fx1h1027" path="res://Entities/Player.tscn" id="2_8gbba"]
 
