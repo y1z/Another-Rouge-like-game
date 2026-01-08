@@ -2,15 +2,16 @@ extends Node2D
 
 var grid: GameGrid
 var player: Player
-var last_saved_player_grid_pos : Vector2i
+var last_saved_player_grid_pos: Vector2i
+var input_man : InputMan
 
-var actions_delay :float = Constants.MINIMUM_DELAY_BETWEEN_ACTIONS 
+var actions_delay: float = Constants.MINIMUM_DELAY_BETWEEN_ACTIONS
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	grid = %Grid;
 	player = %Player
+	input_man = InputMan.new()
 	last_saved_player_grid_pos = player.grid_postion
 	## center the character
 	var grid_pos := grid.get_grid_pos_clamp(player.grid_postion.x, player.grid_postion.y)
@@ -18,9 +19,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(last_saved_player_grid_pos == player.grid_postion):
+	if last_saved_player_grid_pos == player.grid_postion:
 		return
 	last_saved_player_grid_pos = player.grid_postion
 	var grid_pos := grid.get_grid_pos_clamp(player.grid_postion.x, player.grid_postion.y)
@@ -43,6 +43,6 @@ func _input(event: InputEvent) -> void:
 		player.grid_postion.x = clampi(player.grid_postion.x + 1, 0, grid.get_grid_row());
 
 	if event.is_action_pressed("move_left"):
-		player.grid_postion.x = clampi(player.grid_postion.x - 1, 0,  grid.get_grid_row());
-	
+		player.grid_postion.x = clampi(player.grid_postion.x - 1, 0, grid.get_grid_row());
+
 	pass
