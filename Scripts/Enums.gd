@@ -20,4 +20,5 @@ enum InputResult
 	RIGHT,
 	LEFT,
 	MENU,
+	INVENTORY,
 }

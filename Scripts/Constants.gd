@@ -29,5 +29,6 @@ const FLOAT32_MIN: float = 1.175494e-38
 #region PROJECT CONSTANTS
 
 const MINIMUM_DELAY_BETWEEN_ACTIONS:float = 1.0 / 60
+const HALF_DELAY:float = MINIMUM_DELAY_BETWEEN_ACTIONS * 2.0
 
 #endregion
