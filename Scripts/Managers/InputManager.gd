@@ -16,7 +16,7 @@ var input_repeat_delay: float = 1.0 / 15.0:
 var current_starting_time_between_inputs: float = 0.0
 var current_repeat_time_between_inputs: float = 0.0
 var last_input_result: Enums.InputResult = Enums.InputResult.NONE
-var index_of_last_action : int = 0;
+var index_of_last_action: int = 0;
 
 var action_and_result: Dictionary[String, Enums.InputResult] = {
 	"menu": Enums.InputResult.MENU,
@@ -50,14 +50,12 @@ func handle_input(delta: float) -> Enums.InputResult:
 		States.REAPEATING_INPUT:
 			current_repeat_time_between_inputs += delta
 			result = _handle_pressed_action()
-			var action :String = action_and_result.keys()[index_of_last_action]
-			
-			if  _has_action_been_released(action) || last_input_result != result :
+			if last_input_result != result:
 				Debug.d_print("change state to  States.STARTING_INPUT")
 				state = States.STARTING_INPUT
 				current_repeat_time_between_inputs = 0
 				last_input_result = result
-			if  current_repeat_time_between_inputs > input_repeat_delay:
+			if current_repeat_time_between_inputs > input_repeat_delay:
 				current_repeat_time_between_inputs = 0
 				return result
 			else:
